@@ -13,3 +13,6 @@ ENV BUILDAH_FORMAT=docker
 RUN yum -y install awscli2 less && yum -y clean all  && rm -rf /var/cache
 
 COPY --from=docker-credential-ecr-login /go/bin/docker-credential-ecr-login /usr/local/bin/docker-credential-ecr-login
+
+RUN mkdir -p $HOME/.config/containers/ && mkdir -p $HOME/.docker
+
